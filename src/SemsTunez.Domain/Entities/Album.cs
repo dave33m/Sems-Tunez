@@ -1,27 +1,47 @@
 ﻿using SemsTunez.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SemsTunez.Domain.Entities
+namespace SemsTunez.Domain.Entities;
+
+public class Album : BaseEntity
 {
-    public class Album : BaseEntity
+    public Guid ArtistId { get; private set; }
+    public string Title { get; private set; } = null!;
+    public string? Description { get; private set; }
+    public string? CoverImageUrl { get; private set; }
+    public DateOnly? ReleaseDate { get; private set; }
+    public bool IsPublished { get; private set; }
+
+    private Album() { }
+
+    public Album(
+        Guid artistId,
+        string title,
+        string? description = null,
+        string? coverImageUrl = null,
+        DateOnly? releaseDate = null)
     {
-        public Guid ArtistId { get; private set; }
-        public string Title { get; private set; }
-        public string? CoverImageUrl { get; private set; }
-        public DateOnly? ReleaseDate { get; private set; }
+        ArtistId = artistId;
+        Title = title;
+        Description = description;
+        CoverImageUrl = coverImageUrl;
+        ReleaseDate = releaseDate;
+        IsPublished = false;
+    }
 
-        private Album() { }
+    public void UpdateDetails(
+        string title,
+        string? description,
+        string? coverImageUrl,
+        DateOnly? releaseDate)
+    {
+        Title = title;
+        Description = description;
+        CoverImageUrl = coverImageUrl;
+        ReleaseDate = releaseDate;
+    }
 
-        public Album(Guid artistId, string title, DateOnly? releaseDate = null, string? coverImageUrl = null)
-        {
-            ArtistId = artistId;
-            Title = title;
-            ReleaseDate = releaseDate;
-            CoverImageUrl = coverImageUrl;
-        }
+    public void Publish()
+    {
+        IsPublished = true;
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SemsTunez.Api.Swagger;
+using SemsTunez.Application.Interfaces.Albums;
 using SemsTunez.Application.Interfaces.Auth;
 using SemsTunez.Application.Interfaces.Email;
 using SemsTunez.Application.Interfaces.Repositories;
@@ -81,6 +82,9 @@ builder.Services.AddScoped<IEmailSender, SendGridEmailSender>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
 builder.Services.AddScoped<IArtistService, ArtistService>();
+builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
+builder.Services.AddScoped<IAlbumService, AlbumService>();
+
 
 var app = builder.Build();
 

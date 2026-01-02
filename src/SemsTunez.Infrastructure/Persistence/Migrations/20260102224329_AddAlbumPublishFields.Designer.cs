@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SemsTunez.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using SemsTunez.Infrastructure.Persistence;
 namespace SemsTunez.Infrastructure.persistence.Migrations
 {
     [DbContext(typeof(SemsTunezDbContext))]
-    partial class SemsTunezDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260102224329_AddAlbumPublishFields")]
+    partial class AddAlbumPublishFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
