@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SemsTunez.Domain.Entitites;
+using SemsTunez.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

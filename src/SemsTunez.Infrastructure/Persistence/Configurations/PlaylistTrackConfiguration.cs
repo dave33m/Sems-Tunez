@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SemsTunez.Domain.Entitites;
+using SemsTunez.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

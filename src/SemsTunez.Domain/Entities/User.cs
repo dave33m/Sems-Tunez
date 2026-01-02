@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemsTunez.Domain.Entitites
+namespace SemsTunez.Domain.Entities
 {
     public class User : BaseEntity
     {
