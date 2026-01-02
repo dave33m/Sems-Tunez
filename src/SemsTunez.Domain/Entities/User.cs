@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemsTunez.Domain.Entitites
+namespace SemsTunez.Domain.Entities
 {
     public class User : BaseEntity
     {
@@ -24,5 +24,21 @@ namespace SemsTunez.Domain.Entitites
             DisplayName = displayName;
             Role = role;
         }
+        public void UpdatePassword(string newPasswordHash)
+        {
+            PasswordHash = newPasswordHash;
+        }
+        public void UpdateDisplayName(string displayName)
+        {
+            DisplayName = displayName;
+        }
+
+        public void UpdateRole(UserRole role)
+        {
+            Role = role;
+        }
+
     }
+
 }
+

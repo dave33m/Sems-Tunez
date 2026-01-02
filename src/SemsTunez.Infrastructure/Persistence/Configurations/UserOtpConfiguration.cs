@@ -9,25 +9,26 @@ using System.Threading.Tasks;
 
 namespace SemsTunez.Infrastructure.Persistence.Configurations
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class UserOtpConfiguration : IEntityTypeConfiguration<UserOtp>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<UserOtp> builder)
         {
-            builder.ToTable("users");
-
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Email)
                 .IsRequired()
-                .HasMaxLength(255);
+                .HasMaxLength(256);
 
-            builder.HasIndex(x => x.Email).IsUnique();
+            builder.Property(x => x.CodeHash)
+                .IsRequired();
 
-            builder.Property(x => x.DisplayName)
-                .IsRequired()
-                .HasMaxLength(100);
+            builder.Property(x => x.Purpose)
+                .IsRequired();
 
-            builder.Property(x => x.PasswordHash)
+            builder.Property(x => x.ExpiresAt)
+                .IsRequired();
+
+            builder.Property(x => x.CreatedAt)
                 .IsRequired();
         }
     }

@@ -1,0 +1,16 @@
+﻿using SemsTunez.Domain.Entities;
+using SemsTunez.Domain.Enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SemsTunez.Application.Interfaces.Auth
+{
+    public interface IOtpService
+    {
+        Task GenerateOtpAsync(string email, OtpPurpose purpose);
+        Task<User> ValidateOtpAsync(string email, OtpPurpose purpose, string otp);
+    }
+}
