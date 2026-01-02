@@ -2,6 +2,7 @@
 using SemsTunez.Application.DTOs.Auth;
 using SemsTunez.Application.Interfaces.Auth;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SemsTunez.Api.Controllers;
 
