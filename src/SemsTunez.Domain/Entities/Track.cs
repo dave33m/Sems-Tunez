@@ -1,47 +1,57 @@
 ﻿using SemsTunez.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SemsTunez.Domain.Entities
+namespace SemsTunez.Domain.Entities;
+
+public class Track : BaseEntity
 {
-    public class Track : BaseEntity
+    public Guid ArtistId { get; private set; }
+    public Guid AlbumId { get; private set; }
+
+    public string Title { get; private set; } = null!;
+    public int DurationSeconds { get; private set; }
+
+    // Storage-level reference (S3 key, blob key, etc.)
+    public string StorageKey { get; private set; } = null!;
+
+    public int? TrackNumber { get; private set; }
+    public bool IsExplicit { get; private set; }
+    public bool IsPublished { get; private set; }
+
+    private Track() { }
+
+    public Track(
+        Guid artistId,
+        Guid albumId,
+        string title,
+        int durationSeconds,
+        string storageKey,
+        int? trackNumber,
+        bool isExplicit)
     {
-        public Guid ArtistId { get; private set; }
-        public Guid? AlbumId { get; private set; }
-        public string Title { get; private set; }
-        public int DurationSeconds { get; private set; }
-        public string StorageKey { get; private set; }
-        public string LicenseType { get; private set; }
-        public string LicenseAttribution { get; private set; }
-        public bool IsActive { get; private set; }
+        ArtistId = artistId;
+        AlbumId = albumId;
+        Title = title;
+        DurationSeconds = durationSeconds;
+        StorageKey = storageKey;
+        TrackNumber = trackNumber;
+        IsExplicit = isExplicit;
+        IsPublished = false;
+    }
 
-        private Track() { }
+    public void UpdateDetails(
+        string title,
+        int durationSeconds,
+        int? trackNumber,
+        bool isExplicit)
+    {
+        Title = title;
+        DurationSeconds = durationSeconds;
+        TrackNumber = trackNumber;
+        IsExplicit = isExplicit;
+    }
 
-        public Track(
-            Guid artistId,
-            string title,
-            int durationSeconds,
-            string storageKey,
-            string licenseType,
-            string licenseAttribution,
-            Guid? albumId = null)
-        {
-            ArtistId = artistId;
-            Title = title;
-            DurationSeconds = durationSeconds;
-            StorageKey = storageKey;
-            LicenseType = licenseType;
-            LicenseAttribution = licenseAttribution;
-            AlbumId = albumId;
-            IsActive = true;
-        }
-
-        public void Deactivate()
-        {
-            IsActive = false;
-        }
+    public void Publish()
+    {
+        IsPublished = true;
     }
 }

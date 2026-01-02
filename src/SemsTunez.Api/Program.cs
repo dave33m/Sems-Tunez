@@ -8,12 +8,14 @@ using SemsTunez.Application.Interfaces.Auth;
 using SemsTunez.Application.Interfaces.Email;
 using SemsTunez.Application.Interfaces.Repositories;
 using SemsTunez.Application.Interfaces.Security;
+using SemsTunez.Application.Interfaces.Tracks;
 using SemsTunez.Application.Interfaces.Users;
 using SemsTunez.Application.Services.Auth;
 using SemsTunez.Application.Services.Security;
 using SemsTunez.Application.Services.Users;
 using SemsTunez.Infrastructure.Auth;
 using SemsTunez.Infrastructure.Email;
+using SemsTunez.Application.Services.Tracks;
 using SemsTunez.Infrastructure.Persistence;
 using SemsTunez.Infrastructure.Repositories;
 using System.Security.Claims;
@@ -84,6 +86,10 @@ builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
 builder.Services.AddScoped<IArtistService, ArtistService>();
 builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
 builder.Services.AddScoped<IAlbumService, AlbumService>();
+builder.Services.AddScoped<ITrackRepository, TrackRepository>();
+builder.Services.AddScoped<ITrackService, TrackService>();
+
+
 
 
 var app = builder.Build();
