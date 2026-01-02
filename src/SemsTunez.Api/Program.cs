@@ -79,6 +79,8 @@ builder.Services.AddScoped<IUserOtpRepository, UserOtpRepository>();
 builder.Services.AddScoped<IOtpService, OtpService>();
 builder.Services.AddScoped<IEmailSender, SendGridEmailSender>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
+builder.Services.AddScoped<IArtistService, ArtistService>();
 
 var app = builder.Build();
 
