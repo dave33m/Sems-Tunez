@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SemsTunez.Application.DTOs.Auth;
 using SemsTunez.Application.Interfaces.Auth;
 using System.Security.Claims;
