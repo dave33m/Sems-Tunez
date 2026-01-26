@@ -4,12 +4,12 @@ using SemsTunez.Application.Interfaces.Public;
 namespace SemsTunez.Api.Controllers;
 
 [ApiController]
-[Route("api/artists")]
-public class ArtistsController : ControllerBase
+[Route("api/albums")]
+public class AlbumsController : ControllerBase
 {
-    private readonly IArtistQueryService _service;
+    private readonly IAlbumQueryService _service;
 
-    public ArtistsController(IArtistQueryService service)
+    public AlbumsController(IAlbumQueryService service)
     {
         _service = service;
     }
